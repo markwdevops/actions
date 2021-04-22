@@ -27,6 +27,6 @@ metadata:
 spec:
   ports:
   - port: 80
-    protocol: TCP
+    protocol: __PROTOCOL__
   selector:
     run: my-nginx
