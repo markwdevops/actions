@@ -30,7 +30,9 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Replace env vars in file
+        uses: falnyr/replace-env-vars-action@v1.2.1
+        with:
+          filename: ./k8s-config.yml
+        env:
+          REPLICAS: 2
