@@ -33,6 +33,11 @@ jobs:
       - name: Replace env vars in file
         uses: falnyr/replace-env-vars-action@v1.2.1
         with:
-          filename: ./k8s-config.yml
+          filename: ./k8s-config.yaml
         env:
           REPLICAS: 2
+
+      # Runs a single command using the runners shell
+      - name: Cat k8s-config.yaml
+        run: cat k8s-config.yaml
+
