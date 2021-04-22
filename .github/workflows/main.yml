@@ -27,8 +27,7 @@ jobs:
 
       - uses: nelonoel/branch-name@v1.0.1
       # Use branch name for whatever purpose
-      - run: echo ${BRANCH_NAME}
-
+      - run: echo env.${BRANCH_NAME}
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -42,7 +41,7 @@ jobs:
         env:
           REPLICAS: 2
           PROTOCOL: TCP
-          BRANCH_NAME: ${BRANCH_NAME}
+          BRANCH_NAME: env.${BRANCH_NAME}
           BUILD_NUMBER: ${{ github.run_number }}
           BUILD_ID: ${{ github.run_id }}
 
