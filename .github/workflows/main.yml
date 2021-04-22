@@ -24,10 +24,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      - uses: nelonoel/branch-name@v1.0.1
-      # Use branch name for whatever purpose
-      - run: echo ${BRANCH_NAME}
+      # Extract Branch Name
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -41,7 +42,7 @@ jobs:
         env:
           REPLICAS: 2
           PROTOCOL: TCP
-          BRANCH_NAME: ${BRANCH_NAME}
+          BRANCH_NAME: eng:${{ steps.extract_branch.outputs.branch }}
           BUILD_NUMBER: ${{ github.run_number }}
           BUILD_ID: ${{ github.run_id }}
 
