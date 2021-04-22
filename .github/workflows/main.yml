@@ -36,6 +36,7 @@ jobs:
           filename: ./k8s-config.yaml
         env:
           REPLICAS: 2
+          PROTOCOL: TCP
 
       # Runs a single command using the runners shell
       - name: Cat k8s-config.yaml
