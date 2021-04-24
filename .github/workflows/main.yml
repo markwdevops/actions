@@ -38,7 +38,7 @@ jobs:
       - name: Replace env vars in file
         uses: falnyr/replace-env-vars-action@v1.2.1
         with:
-          filename: ./k8s-config.yaml,./github/workflows/main.yml
+          filename: ./k8s-config.yaml
         env:
           REPLICAS: 2
           PROTOCOL: TCP
