@@ -57,7 +57,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Docker Build
-        run: docker build . --file k8s-config.yaml --tag markwhelancsm/actions:__BRANCH_NAME__-__BUILD_NUMBER__-__BUILD-ID, markwhelancsm/actions:__BRANCH_NAME__-latest
+        run: docker build . --file k8s-config.yaml --tag markwhelancsm/actions:latest
 
       - name: Docker Push
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/actions
