@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: __BRANCH_NAME__-__BUILD_NUMBER__-__BUILD_ID__
-        image: nginx:1.16.1 # Update the version of nginx from 1.14.2 to 1.16.1
+        image: nginx:__BRANCH_NAME__-__BUILD_NUMBER__-__BUILD_ID__ # Update the version of nginx from 1.14.2 to 1.16.1
         ports:
         - containerPort: 80
 --
